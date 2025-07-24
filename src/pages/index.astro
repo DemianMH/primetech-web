@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InteractiveHero from '../components/InteractiveHero.astro';
+
+// ==> ¡PASO 1: IMPORTAMOS EL COMPONENTE "IMAGE" DE ASTRO! <==
+import { Image } from 'astro:assets';
+
+// Importamos todas nuestras imágenes como siempre
+import equipamientoImg from '../components/Images/equipamiento-ti.jpg';
+import industriaLegalImg from '../components/Images/industria-legal.jpg';
+import industriaPymeImg from '../components/Images/industria-pyme.jpg';
+import industriaCreativaImg from '../components/Images/industria-creativa.jpg';
+import industriaRetailImg from '../components/Images/industria-retail.jpg';
+import noticia1Img from '../components/Images/noticia-1.png';
+import noticia2Img from '../components/Images/noticia-2.png';
+import noticia3Img from '../components/Images/noticia-3.png';
+import ctaBg from '../components/Images/cta-background.gif'; 
+---
+
+<Layout title="Primetech Solutions | Ciberseguridad, Desarrollo y Redes">
+  <main>
+    <InteractiveHero client:load />
+
+    <section id="equipamiento" class="py-20 sm:py-24 bg-prime-dark">
+        <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <h2 class="text-3xl md:text-4xl font-bold text-prime-light">Un Proveedor Integral para tus Necesidades Tecnológicas</h2>
+                <p class="text-prime-accent mt-2 text-lg font-semibold">Más allá de los servicios: equipamiento y licenciamiento.</p>
+                <p class="text-prime-text mt-4">Actuamos como tu socio estratégico para la adquisición de: equipo de cómputo, servidores, puntos de venta (POS), licenciamiento de software y componentes de red.</p>
+                <a href="/contacto" class="mt-8 inline-block bg-prime-accent hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-prime-accent/20 hover:shadow-prime-accent/40">Cotizar Equipamiento</a>
+            </div>
+            <div data-aos="fade-left" data-aos-delay="200" class="shadow-2xl shadow-prime-accent/10 rounded-lg">
+                <!-- ==> ¡PASO 2: USAMOS EL COMPONENTE IMAGE! <== -->
+                <Image src={equipamientoImg} alt="Servidores y equipamiento tecnológico" class="rounded-lg"/>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative py-24 sm:py-32 text-center text-white" data-aos="zoom-in">
+        <div class="absolute inset-0 bg-prime-dark opacity-60 z-10"></div>
+        <div class="absolute inset-0 w-full h-full z-0"><Image src={ctaBg} alt="Fondo dinámico de tecnología" class="w-full h-full object-cover"/></div>
+        <div class="relative z-20 container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold">¿Por Qué Elegir a Primetech?</h2>
+            <p class="text-2xl mt-4 text-prime-accent font-semibold">Trato Directo con los Expertos.</p>
+            <p class="mt-2 max-w-3xl mx-auto text-prime-light">Con Demian Mora y Alejandro Panduro, te aseguras que los especialistas y fundadores se involucren personalmente en tu proyecto de principio a fin.</p>
+        </div>
+    </section>
+
+    <section id="industrias" class="py-20 sm:py-24 bg-prime-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-prime-light">Soluciones Enfocadas por Industria</h2>
+                <p class="text-prime-accent mt-2">Adaptamos la tecnología a la medida de tu sector.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Para imágenes de fondo complejas como estas, mantenemos <img> por ahora, o usamos CSS -->
+                <div class="relative rounded-lg group transition-all duration-300 border-2 border-transparent hover:border-prime-accent/50 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <Image src={industriaLegalImg} alt="Industria Legal" class="absolute inset-0 w-full h-full object-cover rounded-md opacity-20 group-hover:opacity-30 transition-opacity duration-300"/>
+                    <div class="relative p-6 bg-prime-card/80 rounded-md h-full"><h3 class="text-xl font-bold text-prime-light">Despachos Legales</h3><p class="text-sm text-prime-text mt-2">Seguridad de la información, gestión documental y redes privadas.</p></div>
+                </div>
+                <div class="relative rounded-lg group transition-all duration-300 border-2 border-transparent hover:border-prime-accent/50 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                    <Image src={industriaPymeImg} alt="Pequeña y Mediana Empresa" class="absolute inset-0 w-full h-full object-cover rounded-md opacity-20 group-hover:opacity-30 transition-opacity duration-300"/>
+                    <div class="relative p-6 bg-prime-card/80 rounded-md h-full"><h3 class="text-xl font-bold text-prime-light">PYMES</h3><p class="text-sm text-prime-text mt-2">Optimización de recursos, soporte técnico y soluciones en la nube.</p></div>
+                </div>
+                <div class="relative rounded-lg group transition-all duration-300 border-2 border-transparent hover:border-prime-accent/50 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                    <Image src={industriaCreativaImg} alt="Agencias Creativas" class="absolute inset-0 w-full h-full object-cover rounded-md opacity-20 group-hover:opacity-30 transition-opacity duration-300"/>
+                    <div class="relative p-6 bg-prime-card/80 rounded-md h-full"><h3 class="text-xl font-bold text-prime-light">Agencias Creativas</h3><p class="text-sm text-prime-text mt-2">Redes de alto rendimiento y almacenamiento seguro.</p></div>
+                </div>
+                <div class="relative rounded-lg group transition-all duration-300 border-2 border-transparent hover:border-prime-accent/50 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="400">
+                    <Image src={industriaRetailImg} alt="Retail y POS" class="absolute inset-0 w-full h-full object-cover rounded-md opacity-20 group-hover:opacity-30 transition-opacity duration-300"/>
+                    <div class="relative p-6 bg-prime-card/80 rounded-md h-full"><h3 class="text-xl font-bold text-prime-light">Retail y POS</h3><p class="text-sm text-prime-text mt-2">Implementación y soporte de puntos de venta e inventario.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="noticias" class="py-20 sm:py-24 bg-prime-card">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-prime-light">Información que Importa</h2>
+                <p class="text-prime-accent mt-2">Análisis y noticias relevantes del mundo de la tecnología.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-prime-dark rounded-lg group border-2 border-transparent hover:border-prime-accent/50 transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <Image src={noticia1Img} alt="Artículo de blog" class="w-full h-48 object-cover rounded-t-lg"/>
+                    <div class="p-6"><p class="text-sm text-prime-accent">Ciberseguridad</p><h3 class="text-xl font-bold text-prime-light mt-2">Amenazas de Phishing en 2025</h3><p class="text-prime-text mt-2 text-sm">Las tácticas evolucionan. Aprende a identificar y protegerte...</p><a href="#" class="inline-block mt-4 text-prime-accent font-semibold hover:underline">Leer Más →</a></div>
+                </div>
+                <div class="bg-prime-dark rounded-lg group border-2 border-transparent hover:border-prime-accent/50 transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                    <Image src={noticia2Img} alt="Artículo de blog" class="w-full h-48 object-cover rounded-t-lg"/>
+                    <div class="p-6"><p class="text-sm text-prime-accent">Desarrollo</p><h3 class="text-xl font-bold text-prime-light mt-2">¿Es Astro el Futuro del Desarrollo?</h3><p class="text-prime-text mt-2 text-sm">Analizamos por qué está ganando terreno gracias a su increíble rendimiento...</p><a href="#" class="inline-block mt-4 text-prime-accent font-semibold hover:underline">Leer Más →</a></div>
+                </div>
+                <div class="bg-prime-dark rounded-lg group border-2 border-transparent hover:border-prime-accent/50 transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                    <Image src={noticia3Img} alt="Artículo de blog" class="w-full h-48 object-cover rounded-t-lg"/>
+                    <div class="p-6"><p class="text-sm text-prime-accent">Redes</p><h3 class="text-xl font-bold text-prime-light mt-2">Optimizando tu Red Wi-Fi</h3><p class="text-prime-text mt-2 text-sm">Consejos para mejorar cobertura, velocidad y seguridad...</p><a href="#" class="inline-block mt-4 text-prime-accent font-semibold hover:underline">Leer Más →</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+</Layout>

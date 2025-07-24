@@ -1,0 +1,88 @@
+---
+import imgCiberseguridad from './Images/hero-ciberseguridad.jpg';
+import imgDesarrollo from './Images/hero-desarrollo.jpg';
+import imgRedes from './Images/hero-redes.jpg';
+---
+<section class="relative h-screen flex items-center justify-start text-white">
+    <div id="hero-bg-container" class="absolute inset-0">
+        <img id="hero-bg-image" src={imgCiberseguridad.src} alt="Fondo tecnológico abstracto" class="w-full h-full object-cover transition-opacity duration-500 ease-in-out"/>
+    </div>
+    <div class="absolute inset-0 bg-prime-dark/70 z-10"></div>
+    <div class="relative z-20 container mx-auto px-6">
+        <div class="max-w-xl transition-opacity duration-500 ease-in-out" id="hero-text-content">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight text-prime-light" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Protección Digital Total</h1>
+            <p class="text-lg md:text-xl mt-4 text-prime-light">Blindamos tus activos con estrategias de ciberseguridad de vanguardia.</p>
+            <div class="mt-8">
+                <a href="/servicios/ciberseguridad" class="bg-prime-accent hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-lg text-lg transition-all transform hover:scale-105 shadow-lg shadow-prime-accent/20 hover:shadow-prime-accent/40">
+                    Saber Más →
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full z-20 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 text-sm md:text-base" id="hero-tabs">
+                <button data-slide="0" class="hero-tab active text-left">Ciberseguridad</button>
+                <button data-slide="1" class="hero-tab text-left">Desarrollo de Software</button>
+                <button data-slide="2" class="hero-tab text-left">Redes y Conectividad</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================= SCRIPT SIMPLIFICADO Y A PRUEBA DE ERRORES ======================= -->
+<script define:vars={{ imgCiberseguridad, imgDesarrollo, imgRedes }}>
+    const slidesData = [
+        { image: imgCiberseguridad.src, title: "Protección Digital Total", subtitle: "Blindamos tus activos con estrategias de ciberseguridad de vanguardia.", buttonLink: "/servicios/ciberseguridad" },
+        { image: imgDesarrollo.src, title: "Soluciones de Software a Tu Medida", subtitle: "Desarrollamos aplicaciones robustas y escalables que impulsan tu negocio.", buttonLink: "/portafolio" },
+        { image: imgRedes.src, title: "Conectividad Sin Límites", subtitle: "Diseñamos infraestructuras de red seguras y de alto rendimiento.", buttonLink: "/servicios/redes" }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const bgImage = document.getElementById('hero-bg-image');
+        const textContent = document.getElementById('hero-text-content');
+        const tabs = document.querySelectorAll('.hero-tab');
+        
+        if (!bgImage || !textContent || !tabs.length) return;
+
+        const titleEl = textContent.querySelector('h1');
+        const subtitleEl = textContent.querySelector('p');
+        const buttonEl = textContent.querySelector('a');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                const slideIndex = e.currentTarget.dataset.slide;
+                if (!slideIndex || !titleEl || !subtitleEl || !buttonEl) return;
+
+                const slide = slidesData[parseInt(slideIndex)];
+                if (!slide) return;
+
+                tabs.forEach(t => t.classList.remove('active'));
+                e.currentTarget.classList.add('active');
+                
+                textContent.style.opacity = '0';
+                bgImage.style.opacity = '0.7';
+
+                setTimeout(() => {
+                    titleEl.innerHTML = slide.title;
+                    subtitleEl.textContent = slide.subtitle;
+                    buttonEl.href = slide.buttonLink;
+                    bgImage.src = slide.image;
+                    
+                    bgImage.onload = () => {
+                        textContent.style.opacity = '1';
+                        bgImage.style.opacity = '1';
+                    };
+                }, 300);
+            });
+        });
+    });
+</script>
+
+<style>
+    .hero-tab { color: #94a3b8; position: relative; padding-bottom: 8px; transition: color 0.3s ease; }
+    .hero-tab:hover { color: #f1f5f9; }
+    .hero-tab.active { color: #f1f5f9; font-weight: bold; }
+    .hero-tab::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background-color: #0ea5e9; transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease-in-out; }
+    .hero-tab.active::after { transform: scaleX(1); }
+</style>

@@ -1,0 +1,50 @@
+---
+import logoImg from './Images/logo-primetech.png';
+---
+<header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <div>
+      <a href="/">
+        <img src={logoImg.src} alt="Primetech Solutions Logo" class="h-10 w-auto" />
+      </a>
+    </div>
+    <div class="hidden md:flex space-x-8 items-center">
+      <a href="#services" class="text-prime-light hover:text-prime-accent font-medium transition-colors">Servicios</a>
+      <a href="#process" class="text-prime-light hover:text-prime-accent font-medium transition-colors">Nuestro Proceso</a>
+      <a href="/nosotros" class="text-prime-light hover:text-prime-accent font-medium transition-colors">Sobre Nosotros</a>
+      <a href="/contacto" class="border border-prime-accent text-prime-accent hover:bg-prime-accent/10 font-bold py-2 px-4 rounded-lg transition-all">
+        Contacto
+      </a>
+    </div>
+    <div class="md:hidden">
+      <button id="mobile-menu-button" class="text-prime-light focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden md:hidden bg-prime-dark/95 backdrop-blur-sm">
+    <a href="#services" class="block py-3 px-6 text-prime-light hover:bg-prime-accent hover:text-prime-dark">Servicios</a>
+    <a href="#process" class="block py-3 px-6 text-prime-light hover:bg-prime-accent hover:text-prime-dark">Nuestro Proceso</a>
+    <a href="/nosotros" class="block py-3 px-6 text-prime-light hover:bg-prime-accent hover:text-prime-dark">Sobre Nosotros</a>
+    <a href="/contacto" class="block py-3 px-6 text-prime-light hover:bg-prime-accent hover:text-prime-dark">Contacto</a>
+  </div>
+</header>
+<script>
+  const header = document.getElementById('main-header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('bg-prime-dark/90', 'backdrop-blur-sm', 'shadow-lg');
+      } else {
+        header.classList.remove('bg-prime-dark/90', 'backdrop-blur-sm', 'shadow-lg');
+      }
+    });
+  }
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if(mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>

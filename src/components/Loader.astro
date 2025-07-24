@@ -1,0 +1,36 @@
+---
+import mascotaImg from './Images/mascota-primetech.png';
+---
+<div id="loader" class="fixed top-0 left-0 w-full h-full bg-white flex justify-center items-center z-50 transition-opacity duration-700">
+   <img src={mascotaImg.src} alt="Cargando Primetech Solutions..." class="w-48 h-auto floating-animation" />
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.classList.add('opacity-0');
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 700); 
+    }
+  });
+</script>
+
+<style>
+  .floating-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+</style>

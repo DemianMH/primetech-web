@@ -1,0 +1,47 @@
+---
+// Importaciones de componentes
+import Loader from '../components/Loader.astro'; 
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// ==> ¡LA LÍNEA MÁS CRÍTICA PARA SOLUCIONAR LA PANTALLA EN BLANCO! <==
+import '../styles/global.css';
+
+export interface Props {
+	title: string;
+}
+const { title = 'Primetech Solutions' } = Astro.props;
+---
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Primetech Solutions - Expertos en Ciberseguridad, Desarrollo y Redes" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+		<title>{title}</title>
+	</head>
+
+	<!-- AÑADIMOS LAS CLASES DE FONDO Y TEXTO DIRECTAMENTE AQUÍ -->
+	<body class="font-[Poppins,sans-serif] bg-prime-dark text-prime-text">
+		<Loader />
+		<Header />
+		
+		<!-- El slot renderizará TODO el contenido de index.astro -->
+		<slot />
+
+		<Footer />
+
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<script is:inline>
+			AOS.init({
+				duration: 800,
+				once: true,
+			});
+		</script>
+	</body>
+</html>
