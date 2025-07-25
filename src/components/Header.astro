@@ -1,50 +1,48 @@
 ---
+import { Image } from 'astro:assets';
+// === RUTA CORRECTA: Desde aquí, la carpeta Images está en el mismo nivel ===
 import logoImg from './Images/logo-primetech.png';
 ---
 <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
   <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <div>
-      <a href="/">
-        <img src={logoImg.src} alt="Primetech Solutions Logo" class="h-10 w-auto" />
-      </a>
+    <a href="/" class="z-50"><Image src={logoImg} alt="Primetech Solutions Logo" class="h-10 w-auto" width={180} height={40}/></a>
+    <div class="hidden lg:flex items-center space-x-8">
+      <a href="/" class="text-white hover:text-[#0ea5e9] font-medium transition-colors">Inicio</a>
+      <a href="#servicios" class="text-white hover:text-[#0ea5e9] font-medium transition-colors">Servicios</a>
+      <a href="#contacto" class="border border-[#0ea5e9] text-[#0ea5e9] hover:bg-[#0ea5e9]/10 font-bold py-2 px-5 rounded-full transition-all">Contacto</a>
     </div>
-    <div class="hidden md:flex space-x-8 items-center">
-      <a href="#services" class="text-prime-light hover:text-prime-accent font-medium transition-colors">Servicios</a>
-      <a href="#process" class="text-prime-light hover:text-prime-accent font-medium transition-colors">Nuestro Proceso</a>
-      <a href="/nosotros" class="text-prime-light hover:text-prime-accent font-medium transition-colors">Sobre Nosotros</a>
-      <a href="/contacto" class="border border-prime-accent text-prime-accent hover:bg-prime-accent/10 font-bold py-2 px-4 rounded-lg transition-all">
-        Contacto
-      </a>
-    </div>
-    <div class="md:hidden">
-      <button id="mobile-menu-button" class="text-prime-light focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-      </button>
-    </div>
+    <button id="mobile-menu-button" class="lg:hidden text-white z-50">
+      <svg id="menu-icon-open" class="w-7 h-7" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      <svg id="menu-icon-close" class="w-7 h-7 hidden" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
   </nav>
-  <div id="mobile-menu" class="hidden md:hidden bg-prime-dark/95 backdrop-blur-sm">
-    <a href="#services" class="block py-3 px-6 text-prime-light hover:bg-prime-accent hover:text-prime-dark">Servicios</a>
-    <a href="#process" class="block py-3 px-6 text-prime-light hover:bg-prime-accent hover:text-prime-dark">Nuestro Proceso</a>
-    <a href="/nosotros" class="block py-3 px-6 text-prime-light hover:bg-prime-accent hover:text-prime-dark">Sobre Nosotros</a>
-    <a href="/contacto" class="block py-3 px-6 text-prime-light hover:bg-prime-accent hover:text-prime-dark">Contacto</a>
+  <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-[#0a192f] flex flex-col items-center justify-center space-y-10">
+    <a href="/" class="text-3xl font-bold text-white hover:text-[#0ea5e9]">Inicio</a>
+    <a href="#servicios" class="text-3xl font-bold text-white hover:text-[#0ea5e9]">Servicios</a>
+    <a href="#contacto" class="text-3xl font-bold text-white hover:text-[#0ea5e9]">Contacto</a>
   </div>
 </header>
 <script>
-  const header = document.getElementById('main-header');
-  if (header) {
+    const header = document.getElementById('main-header');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openIcon = document.getElementById('menu-icon-open');
+    const closeIcon = document.getElementById('menu-icon-close');
+    
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('bg-prime-dark/90', 'backdrop-blur-sm', 'shadow-lg');
-      } else {
-        header.classList.remove('bg-prime-dark/90', 'backdrop-blur-sm', 'shadow-lg');
-      }
+      if (window.scrollY > 30) { header?.classList.add('bg-[#18181b]/80', 'backdrop-blur-sm'); } 
+      else { header?.classList.remove('bg-[#18181b]/80', 'backdrop-blur-sm'); }
     });
-  }
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if(mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  }
+
+    if(mobileMenuButton && mobileMenu && openIcon && closeIcon) {
+        const toggleMenu = () => {
+            const isMenuOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            openIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+            document.body.style.overflow = isMenuOpen ? 'auto' : 'hidden';
+        };
+        mobileMenuButton.addEventListener('click', toggleMenu);
+        mobileMenu.querySelectorAll('a').forEach(link => { link.addEventListener('click', toggleMenu); });
+    }
 </script>

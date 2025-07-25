@@ -1,53 +1,15 @@
 ---
+import { Image } from 'astro:assets';
+// === RUTA CORRECTA ===
 import logoImg from './Images/logo-primetech.png';
 ---
-<footer class="bg-prime-dark border-t border-white/10 pt-16 pb-8">
-    <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-            
-            <div class="md:col-span-4 lg:col-span-5">
-                <a href="/" class="inline-block"><img src={logoImg.src} alt="Primetech Solutions" class="h-12"/></a>
-                <p class="text-prime-text mt-4 max-w-xs">Tu Fortaleza Digital, Construida por Expertos. Soluciones directas y efectivas para cada necesidad.</p>
-            </div>
-
-            <div class="md:col-span-2 lg:col-span-2">
-                <h3 class="font-bold text-prime-light mb-4">Navegación</h3>
-                <ul class="space-y-2">
-                    <li><a href="#services" class="text-prime-text hover:text-prime-accent transition-colors">Servicios</a></li>
-                    <li><a href="#industrias" class="text-prime-text hover:text-prime-accent transition-colors">Industrias</a></li>
-                    <li><a href="#noticias" class="text-prime-text hover:text-prime-accent transition-colors">Noticias</a></li>
-                </ul>
-            </div>
-
-            <div class="md:col-span-3 lg:col-span-2">
-                <h3 class="font-bold text-prime-light mb-4">Compañía</h3>
-                <ul class="space-y-2">
-                    <li><a href="/nosotros" class="text-prime-text hover:text-prime-accent transition-colors">Sobre Nosotros</a></li>
-                    <li><a href="/contacto" class="text-prime-text hover:text-prime-accent transition-colors">Contacto</a></li>
-                </ul>
-            </div>
-
-            <div class="md:col-span-3 lg:col-span-3">
-                <h3 class="font-bold text-prime-light mb-4">Síguenos</h3>
-                <div class="flex space-x-4">
-                    <!-- Facebook -->
-                    <a href="https://facebook.com" target="_blank" class="text-prime-text hover:text-prime-accent transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.49-10 10s4.5 10 10 10 10-4.49 10-10-4.5-10-10-10zm2.55 10.36h-1.66v6.02h-2.61v-6.02h-1.23v-2.26h1.23v-1.5c0-1.12.54-2.82 2.82-2.82l1.97.01v2.16h-1.39c-.21 0-.52.1-.52.54v1.61h1.92l-.26 2.26z"/></svg>
-                    </a>
-                    <!-- Instagram -->
-                    <a href="https://instagram.com" target="_blank" class="text-prime-text hover:text-prime-accent transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2c-2.72 0-3.06.01-4.12.06-1.06.05-1.79.22-2.42.46-.65.25-1.19.59-1.74 1.14-.55.55-.89 1.09-1.14 1.74-.24.63-.41 1.36-.46 2.42-.05 1.06-.06 1.4-.06 4.12s.01 3.06.06 4.12c.05 1.06.22 1.79.46 2.42.25.65.59 1.19 1.14 1.74.55.55 1.09.89 1.74 1.14.63.24 1.36.41 2.42.46 1.06.05 1.4.06 4.12.06s3.06-.01 4.12-.06c1.06-.05 1.79-.22 2.42-.46.65-.25 1.19-.59 1.74-1.14.55-.55.89-1.09 1.14-1.74.24-.63.41-1.36.46-2.42.05-1.06.06-1.4.06-4.12s-.01-3.06-.06-4.12c-.05-1.06-.22-1.79-.46-2.42-.25-.65-.59-1.19-1.14-1.74-.55-.55-1.09-.89-1.74-1.14-.63-.24-1.36-.41-2.42-.46C15.06 2.01 14.72 2 12 2zm0 1.8c2.67 0 3 .01 4.05.06.97.04 1.5.21 1.84.34.42.16.75.38 1.08.7.33.33.54.66.7 1.08.13.34.3.87.34 1.84.05 1.05.06 1.38.06 4.05s-.01 3-.06 4.05c-.04.97-.21 1.5-.34 1.84-.16.42-.38.75-.7 1.08-.33.33-.66.54-1.08.7-.34.13-.87.3-1.84.34-1.05.05-1.38.06-4.05.06s-3-.01-4.05-.06c-.97-.04-1.5-.21-1.84-.34-.42-.16-.75-.38-1.08-.7-.33-.33-.54-.66-.7-1.08-.13-.34-.3-.87-.34-1.84-.05-1.05-.06-1.38-.06-4.05s.01-3 .06-4.05c.04-.97.21-1.5.34-1.84.16-.42.38-.75.7-1.08.33-.33.66-.54 1.08-.7.34-.13.87-.3 1.84-.34C9 3.81 9.33 3.8 12 3.8zm0 5.4c-1.99 0-3.6 1.61-3.6 3.6s1.61 3.6 3.6 3.6 3.6-1.61 3.6-3.6-1.61-3.6-3.6-3.6zm0 5.8c-1.21 0-2.2-0.99-2.2-2.2s0.99-2.2 2.2-2.2 2.2 0.99 2.2 2.2-0.99 2.2-2.2 2.2zm4.35-6.3c-.61 0-1.1.49-1.1 1.1s.49 1.1 1.1 1.1 1.1-.49 1.1-1.1-.49-1.1-1.1-1.1z"/></svg>
-                    </a>
-                    <!-- LinkedIn -->
-                    <a href="https://linkedin.com" target="_blank" class="text-prime-text hover:text-prime-accent transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                </div>
-            </div>
-
+<footer id="contacto" class="bg-[#0a192f] border-t border-white/10 pt-16 pb-8">
+    <div class="container mx-auto px-6 text-center md:text-left">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="lg:col-span-2"><a href="/"><Image src={logoImg} alt="Primetech Logo" class="h-12 w-auto mx-auto md:mx-0" width={200} height={48}/></a><p class="mt-4 max-w-xs mx-auto md:mx-0 text-[#94a3b8]">Tu Fortaleza Digital, Construida por Expertos.</p></div>
+            <div><h3 class="font-bold text-white mb-4">Navegación</h3><ul class="space-y-2"><li><a href="#servicios" class="text-[#94a3b8] hover:text-[#0ea5e9]">Servicios</a></li><li><a href="#industrias" class="text-[#94a3b8] hover:text-[#0ea5e9]">Industrias</a></li></ul></div>
+            <div><h3 class="font-bold text-white mb-4">Síguenos</h3><div class="flex space-x-4 justify-center md:justify-start"><a href="#" class="text-[#94a3b8] hover:text-[#0ea5e9]">Facebook</a><a href="#" class="text-[#94a3b8] hover:text-[#0ea5e9]">LinkedIn</a></div></div>
         </div>
-        <div class="text-center text-prime-text mt-12 border-t border-white/10 pt-6">
-            © {new Date().getFullYear()} Primetech Solutions. Todos los derechos reservados.
-        </div>
+        <div class="text-center text-[#94a3b8] mt-12 border-t border-white/10 pt-6">© {new Date().getFullYear()} Primetech Solutions.</div>
     </div>
 </footer>
